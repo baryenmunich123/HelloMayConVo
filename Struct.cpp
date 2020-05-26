@@ -9,40 +9,38 @@ struct student {
     };
 typedef struct student Student;
 
-void Mysort (Student[],int n);
-
-void Mysort (Student[], int n)
+void Mysort (Student a[3], int n)
 {
-    
+
     for (int i=0; i<n-1; i++)
     {
         for (int j=i+1; j<n; j++)
         {
-            if (Student [i].score > Student[j].score)
+            if (a [i].score > a[j].score)
             {
-                Studenttmp = Student[i].score;
-                Student[i].score = Student[j].score;
-                Student[j].score = Studenttmp;
+                student tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
             }
         }
     }
 }
 int main()
 {
-    Student Student[3];
+    Student a[3];
     for (int i=0; i<3; i++)
     {
         printf ("Student %d name ",i+1);
-        scanf ("%s",Student[i].name);
+        scanf ("%s",a[i].name);fflush(stdin);
         printf ("Score: ");
-        scanf ("%d",&Student[i].score);
+        scanf ("%d",&a[i].score);fflush(stdin);
     }
-    Mysort (Student,3);
+    Mysort (a,3);
     printf ("list of student: \n");
     for (int i=0; i<3; i++)
     {
-        printf ("Student: %s\n",Student[i].name);
-        printf ("Score: %d\n",Student[i].score);
+        printf ("Student: %s\n",a[i].name);
+        printf ("Score: %d\n",a[i].score);
     }
     return 0;
 }
