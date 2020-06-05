@@ -22,17 +22,26 @@ int check (int a[][m], int n, int i, int j)
     for (int k=1;k<=4;k++)    //Xet theo chieu ngang
         if (a[i][j+k]==centr)
         {
+            if((a[i][j-1]!=centr && a[i][j+5]!=centr)|| (j-1<0 && a[i][j+5]!=centr) || (j+5>39 && a[i][j-1]!=centr))
+            {
+                count=0;break;
+            }
+            else
+            {
             count++;
-            if (count==4)
-                return 1;
+            }
         }
         else
         {
             count=0;break;
         }
+        if(count==4)
+            return 1;
+        else count=0;
     for (k=1;k<=4;k++)    //Xet theo duong cheo song xong voi cheo chinh
         if (a[i+k][j+k]==centr)
         {
+            if((a[i-1][j-1]!=centr && a[i+5][j+5]!=centr))
             count++;
             if (count==4)
                 return 1;
