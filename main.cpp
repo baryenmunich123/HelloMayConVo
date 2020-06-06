@@ -8,6 +8,7 @@ int check (int a[][m], int n, int i, int j);
 void caro (int a[][m], int &n);
 int checkwin (int a[][m], int n);
 void output (int a[][m], int n, char p1, char p2);
+int xo(int n);
 
 int main()
 {
@@ -17,61 +18,83 @@ int main()
 
 int check (int a[][m], int n, int i, int j)
 {
-    int k;
-    int count=0;int centr=a[i][j];// Gan 1 hoac 0 vao bien centr
-    for (int k=1;k<=4;k++)    //Xet theo chieu ngang
-        if (a[i][j+k]==centr)
+    int count=0;int b=a[i][j];// Gan 1 hoac 0 vao bien centr
+    for (int k=1;k<=9;k++)    //Xet theo chieu ngang
+        if (a[i][j+k]==b)
         {
-            if((a[i][j-1]!=centr && a[i][j+5]!=centr)|| (j-1<0 && a[i][j+5]!=centr) || (j+5>39 && a[i][j-1]!=centr))
+            if(((a[i][j-1]==xo(b)) && (a[i][j+5]==xo(b))) || ((j-1<0) && (a[i][j+5]==xo(b))) || ((j+5>39) && (a[i][j-1]==xo(b))))
             {
                 count=0;break;
             }
-            else
-            {
-            count++;
-            }
+            else count++;
         }
         else
         {
-            count=0;break;
+        	if(k>5)
+        	{
+        		count=0;break;
+			}
+            else break;
         }
-        if(count==4)
-            return 1;
+    if(count==4) return 1;
         else count=0;
-    for (k=1;k<=4;k++)    //Xet theo duong cheo song xong voi cheo chinh
-        if (a[i+k][j+k]==centr)
+    for (int k=1;k<=9;k++)    //Xet theo duong cheo song xong voi cheo chinh
+        if (a[i+k][j+k]==b)
         {
-            if((a[i-1][j-1]!=centr && a[i+5][j+5]!=centr))
-            count++;
-            if (count==4)
-                return 1;
+            if((a[i-1][j-1]==xo(b) && a[i+5][j+5]==xo(b)) || ((i-1<0)||(j-1<0) && a[i+5][j+5]==xo(b)) || ((i+5 >39) || (j+5 >39) && (a[i-1][j-1]==xo(b))) )
+            {
+            	count = 0; break;
+			}
+            else count++;
         }
-        else
+        else 
         {
-            count=0;break;
-        }
-    for (k=1;k<=4;k++)    //Xet theo chieu doc
-        if (a[i+k][j]==centr)
+        	if(k>5)
+        	{
+        		count=0;break;
+			}
+            else break;
+		}
+	if (count==4) return 1;
+	else count=0;
+    for (int k=1;k<=9;k++)    //Xet theo chieu doc
+        if (a[i+k][j]==b)
         {
-            count++;
-            if (count==4)
-                return 1;
-        }
-        else
-        {
-            count=0;break;
-        }
-    for (k=1;k<=4;k++)    //Xet theo duong cheo song song song voi cheo phu
-        if (a[i+k][j-k]==centr)
-        {
-            count++;
-            if (count==4)
-                return 1;
-        }
-        else
-        {
-            count=0;break;
-        }
+        	if((a[i-1][j]==xo(b) && a[i+5][j]==xo(b) || (i-1<0 && a[i+5][j]==xo(b)) || (i+5>19 && a[i-1][j]==xo(b))))
+        	{
+        		count=0;break;
+			}
+			else count++;
+		}
+		else
+		{
+			if(k>5)
+        	{
+        		count=0;break;
+			}
+            else break;
+		}
+	if(count==4) return 1;
+	else count=0;
+    for (int k=1;k<=9;k++)    //Xet theo duong cheo song song song voi cheo phu
+        if (a[i][j]==b)
+		{
+			if ((a[i-1][j+1]==xo(b) && a[i+5][j-5]==xo(b)) || ((i-1<0)||(j+1>39) && a[i+5][j-5]==xo(b)) || (((i+5>20) || (j-5<0) ) && a[i-1][j+1]==xo(b) ))
+			{
+				count=0;break;
+			}
+			else count++;
+		} 
+		else
+		{
+			if(k>5)
+        	{
+        		count=0;break;
+			}
+            else break;
+		}
+	if(count==4) return 1;
+        else count=0;
     return 0;
 }
 
@@ -127,9 +150,9 @@ void caro (int a[][m], int &n)
                 scanf("%d" ,&a[vt1][vt2]);
             }
         }
-        count++;
         output(a,n,p1,p2);
-        if (count>=5)    // Checkwin when there's >5 moves played
+        count++;
+        /*if (count>=5)    // Checkwin when there's >5 moves played*/
             k=checkwin(a,n);
     }
     if (k==1)
@@ -141,8 +164,8 @@ void caro (int a[][m], int &n)
 int checkwin (int a[][m], int n)
 {
     int kt;
-    for (int i=0;i<n;i++)
-        for (int j=0;j<n;j++)
+    for (int i=0;i<20;i++)
+        for (int j=0;j<40;j++)
         {
             if (a[i][j]==1)
             {
@@ -176,4 +199,9 @@ void output (int a[][m], int n, char p1, char p2)
         }
         printf("\n");
     }
+}
+int xo(int n)
+{
+	if (n==2) return 1;
+	else return 2;
 }
