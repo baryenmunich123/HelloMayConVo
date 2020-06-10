@@ -1,9 +1,18 @@
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
+#include <windows.h>
+
 using namespace std;
+void TextColor(int x)
+{
+	HANDLE color;
+	color = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(color,x);
+}
 void border ()
 {
+    TextColor (14);
     printf(".-=~=-.                                                                 .-=~=-.\n");
     printf("(__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _)\n");
     printf("( _ __)                                                                 ( _ __)\n");
@@ -13,21 +22,23 @@ void border ()
     printf("(__  _)                                                                 (__  _)\n");
     printf("(_ ___)                                                                 ( _ __)\n");
     printf("(__  _)                                                                 (__  _)\n");
-    printf("(_ ___)"); printf("            ______         __        _______          ____"); printf("       ( _ __)\n");
-    printf("(__  _)"); printf("          .' ___  |       /  \\\      |_   __ \\\       .'    `.");    printf("     (__  _)\n");
-    printf("( _ __)"); printf("         / .'   \\\_|      / /\\\ \\\       | |__) |     /  .--.  \\");   printf("    (_ ___)\n");
-    printf("(__  _)"); printf("         | |            / ____ \\\      |  __ /      | |    | |");   printf("    (__  _)\n");
-    printf("(_ ___)"); printf("         \\\ `.___.'\\\   _/ /    \\\ \\\_   _| |  \\\ \\\_    \\\  `--'  /");   printf("    ( _ __)\n");
-    printf("(__  _)"); printf("          `._____.'  |____|  |____| |____| |___|    `.____.'");    printf("     (__  _)\n");
-    printf("(__  _)                                                                 (__  _)\n");
+TextColor (14);    printf("(_ ___)"); TextColor (2); printf("            ______         __        _______          ____"); TextColor (14); printf("       ( _ __)\n");
+TextColor (14);    printf("(__  _)"); TextColor (3); printf("          .' ___  |       /  \\\      |_   __ \\\       .'    `."); TextColor (14);   printf("     (__  _)\n");
+TextColor (14);    printf("( _ __)"); TextColor (12); printf("         / .'   \\\_|      / /\\\ \\\       | |__) |     /  .--.  \\"); TextColor (14);  printf("    (_ ___)\n");
+TextColor (14);    printf("(__  _)"); TextColor (14); printf("         | |            / ____ \\\      |  __ /      | |    | |"); TextColor (14);  printf("    (__  _)\n");
+TextColor (14);    printf("(_ ___)"); TextColor (6); printf("         \\\ `.___.'\\\   _/ /    \\\ \\\_   _| |  \\\ \\\_    \\\  `--'  /"); TextColor (14);  printf("    ( _ __)\n");
+TextColor (14);    printf("(__  _)"); TextColor (13); printf("          `._____.'  |____|  |____| |____| |___|    `.____.'"); TextColor (14);   printf("     (__  _)\n");
+TextColor (14);    printf("(__  _)                                                                 (__  _)\n");
+TextColor (14);    printf("(_ ___)"); TextColor (15); printf("                         1. New Game"); TextColor (14); printf("                             (_ ___)\n");
+TextColor (14);    printf("(__  _)"); TextColor (15); printf("                         2. Instruction"); TextColor (14); printf("                          (__  _)\n");
+TextColor (14);    printf("( _ __)"); TextColor (15); printf("                         3. Credit"); TextColor (14); printf("                               ( _ __)\n");
+TextColor (14);    printf("(__  _)"); TextColor (15); printf("                         4. Quit game"); TextColor (14); printf("                            (__  _)\n");
+    TextColor (14);
     printf("( _ __)                                                                 ( _ __)\n");
     printf("(__  _)                                                                 (__  _)\n");
-    printf("(_ ___)                                                                 (_ ___)\n");
-    printf("(_ ___)                          1. New Game                            (_ ___)\n");
-    printf("(__  _)                          2. Instruction                         (__  _)\n");
-    printf("( _ __)                          3. Credit                              ( _ __)\n");
-    printf("(__  _)                          4. Quit game                           (__  _)\n");
-    printf("( _ __)                                                                 ( _ __)\n");
+TextColor (14);    printf("( _ __)"); TextColor (15); printf("                    Please press from 1 to 4"); TextColor (14); printf("                     ( _ __)\n");
+    TextColor (14);
+    printf("(__  _)                                                                 (__  _)\n");
     printf("(__  _)                                                                 (__  _)\n");
     printf("( _ __)                                                                 ( _ __)\n");
     printf("(__  _)                                                                 (__  _)\n");
@@ -36,18 +47,20 @@ void border ()
 }
 void Instruction ()
 {
+    system ("cls");
+    TextColor (2);
     printf("   __________________________________________________________________________________\n");
     printf(" / \\\                                                                                 \\\.\n");
     printf("|   |                                                                                |.\n");
     printf(" \\\_ |                                                                                |.\n");
     printf("    |                                                                                |.\n");
-    printf("    |                                 INSTRUCTION:                                   |.\n");
-    printf("    | Playing Caro is pretty straightforward.It is played using X/O symbol.          |.\n");
-    printf("    | Players take turns placing their symbol on an open intersection on the board.  |.\n");
-    printf("    | The row can be horizontal, vertical, or diagonal as long as it is unbroken.    |.\n");
-    printf("    | The player that manages to create 5 in a row first wins the round.             |.\n");
-    printf("    | You can not win by creating 6 in a row or more.                                |.\n");
-    printf("    | 5 in a row but stucked in the middle of other symbol is invalid.               |.\n");
+    printf("    |"); printf("                                 INSTRUCTION:"); printf("                                   |.\n");
+    printf("    |"); printf(" Playing Caro is pretty straightforward.It is played using X/O symbol."); printf("          |.\n");
+    printf("    |"); printf(" Players take turns placing their symbol on an open intersection on the board."); printf("  |.\n");
+    printf("    |"); printf(" The row can be horizontal, vertical, or diagonal as long as it is unbroken."); printf("    |.\n");
+    printf("    |"); printf(" The player that manages to create 5 in a row first wins the round."); printf("             |.\n");
+    printf("    |"); printf(" You can not win by creating 6 in a row or more."); printf("                                |.\n");
+    printf("    |"); printf(" 5 in a row but stucked in the middle of other symbol is invalid."); printf("               |.\n");
     printf("    |                                                                                |.\n");
     printf("    |                                                                                |.\n");
     printf("    |   _____________________________________________________________________________|___\n");
@@ -57,17 +70,19 @@ void Instruction ()
 }
 void Credit ()
 {
+    system ("cls");
+    TextColor (3);
     printf("   ___________________________________________________________\n");
     printf(" / \\\                                                          \\\.\n");
     printf("|   |                                                         |.\n");
     printf(" \\\_ |                                                         |.\n");
     printf("    |                                                         |.\n");
     printf("    |                                                         |.\n");
-    printf("    |           ABOUT US:                    Instructor:      |.\n");
-    printf("    |    HA TIEN DAT (Leader)               Tran Thanh Tung   |.\n");
-    printf("    |    Nguyen Thanh Phong ITITIU19040                       |.\n");
-    printf("    |    Bui Minh Quang ITITIU19044                           |.\n");
-    printf("    |    Dinh Bao Duy ITITIU19107                             |.\n");
+    printf("    |"); printf("           ABOUT US:                    Instructor:"); printf("      |.\n");
+    printf("    |"); printf("    HA TIEN DAT (Leader)               Tran Thanh Tung"); printf("   |.\n");
+    printf("    |"); printf("    Nguyen Thanh Phong ITITIU19040"); printf("                       |.\n");
+    printf("    |"); printf("    Bui Minh Quang ITITIU19044"); printf("                           |.\n");
+    printf("    |"); printf("    Dinh Bao Duy ITITIU19107"); printf("                             |.\n");
     printf("    |                                                         |.\n");
     printf("    |                                                         |.\n");
     printf("    |                                                         |.\n");
@@ -92,7 +107,7 @@ int main ()
 {
     border ();
     int n;
-    printf ("Please choose 1 to 4: ");
+    TextColor (15);
     scanf ("%d",&n);
     while (n != 4)
     {
@@ -113,6 +128,7 @@ int main ()
                     printf ("Please press from 1 to 4: ");
                 }
         };
+        TextColor (15);
         scanf ("%d",&n);
     }
     if (n == 4)
