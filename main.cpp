@@ -3,6 +3,12 @@
 #include <math.h>
 #include <stdlib.h>// used for the system('cls') clear screen function
 #define m 100
+#ifndef FUNCTION_H_INCLUDED
+#define FUNCTION_H_INCLUDED
+
+
+
+#endif // FUNCTION_H_INCLUDED
 
 int check (int a[][m], int n, int i, int j);
 void caro (int a[][m], int &n);
@@ -47,7 +53,7 @@ int check (int a[][m], int n, int i, int j)
 			}
             else count++;
         }
-        else 
+        else
         {
         	if(k>5)
         	{
@@ -84,7 +90,7 @@ int check (int a[][m], int n, int i, int j)
 				count=0;break;
 			}
 			else count++;
-		} 
+		}
 		else
 		{
 			if(k>5)

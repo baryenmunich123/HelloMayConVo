@@ -45,15 +45,14 @@ TextColor (14);    printf("( _ __)"); TextColor (15); printf("                  
     printf("(_ ___)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(_ ___)\n");
     printf("`-._.-'                                                                 `-._.-'\n");
 }
+
 void Instruction ()
 {
-    system ("cls");
-    TextColor (2);
+    TextColor (6);
     printf("   __________________________________________________________________________________\n");
     printf(" / \\\                                                                                 \\\.\n");
     printf("|   |                                                                                |.\n");
     printf(" \\\_ |                                                                                |.\n");
-    printf("    |                                                                                |.\n");
     printf("    |"); printf("                                 INSTRUCTION:"); printf("                                   |.\n");
     printf("    |"); printf(" Playing Caro is pretty straightforward.It is played using X/O symbol."); printf("          |.\n");
     printf("    |"); printf(" Players take turns placing their symbol on an open intersection on the board."); printf("  |.\n");
@@ -62,7 +61,25 @@ void Instruction ()
     printf("    |"); printf(" You can not win by creating 6 in a row or more."); printf("                                |.\n");
     printf("    |"); printf(" 5 in a row but stucked in the middle of other symbol is invalid."); printf("               |.\n");
     printf("    |                                                                                |.\n");
-    printf("    |                                                                                |.\n");
+    printf("    |                       .----------------.        _________________________      |.\n");
+    printf("    |                      | .--------------. |      |                         |     |.\n");
+    printf("    |                      | | ____    ____ | |      |                 /       |     |.\n");
+    printf("    |                      | ||_   _||_   _|| |      |      /         /        |     |.\n");
+    printf("    |                      | |  | | /\\\ | |  | |      |     / __enter_/         |     |.\n");
+    printf("    |                      | |  | |/  \\\| |  | |      |     \\\                   |     |.\n");
+    printf("    |                      | |  |__/  \\\__|  | |      |      \\\                  |     |.\n");
+    printf("    |                      | '--------------' |      |_________________________|     |.\n");
+    printf("    |                       '----------------'                                       |.\n");
+    printf("    |  .----------------.   .----------------.   .----------------.                  |.\n");
+    printf("    | | .--------------. | | .--------------. | | .--------------. |                 |.\n");
+    printf("    | | |      __      | | | |    _______   | | | |  ________    | |                 |.\n");
+    printf("    | | |     /  \\\     | | | |   /  ___  |  | | | | |_   ___ `.  | |                 |.\n");
+    printf("    | | |    / /\\\ \\\    | | | |  |  (__ \\\_|  | | | |   | |   `. \\\ | |                 |.\n");
+    printf("    | | |   / ____ \\\   | | | |   '.___`-.   | | | |   | |    | | | |                 |.\n");
+    printf("    | | | _/ /    \\\ \\\_ | | | |  |`\\\____) |  | | | |  _| |___.' / | |                 |.\n");
+    printf("    | | ||____|  |____|| | | |  |_______.'  | | | | |________.'  | |                 |.\n");
+    printf("    | | '--------------' | | '--------------' | | '--------------' |                 |.\n");
+    printf("    |  '----------------'   '----------------'   '----------------'                  |.\n");
     printf("    |   _____________________________________________________________________________|___\n");
     printf("    |  /                                                                                /.\n");
     printf("    \\\_/________________________________________________________________________________/.\n");
@@ -70,7 +87,6 @@ void Instruction ()
 }
 void Credit ()
 {
-    system ("cls");
     TextColor (3);
     printf("   ___________________________________________________________\n");
     printf(" / \\\                                                          \\\.\n");
@@ -95,12 +111,12 @@ void Exit ()
 {
     system("cls");
     printf("\n\n\n");
-    printf("      ___  ___  ___ _   _  ___  _   _\n");
-    printf("     / __|/ _ \\\/ _ \\\ | | |/ _ \\\| | | |\n");
-    printf("     \\\__ \\\  __/  __/ |_| | (_) | |_| |\n");
-    printf("     |___/\\\___|\\\___|\\\___ |\\\___/ \\\____|\n");
-    printf("                     __/ |\n");
-    printf("                    |___/\n");
+TextColor (13);    printf("          ___  ___  ___ _   _  ___  _   _\n");
+TextColor (13);    printf("         / __|/ _ \\\/ _ \\\ | | |/ _ \\\| | | |\n");
+TextColor (13);    printf("         \\\__ \\\  __/  __/ |_| | (_) | |_| |\n");
+TextColor (13);    printf("         |___/\\\___|\\\___|\\\___ |\\\___/ \\\____|\n");
+TextColor (13);    printf("                         __/ |\n");
+TextColor (13);    printf("                        |___/\n");
 
 }
 int main ()
@@ -134,7 +150,6 @@ int main ()
     if (n == 4)
     {
         Exit();
-        return 0;
     }
     return 0;
 }
